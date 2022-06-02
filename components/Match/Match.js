@@ -10,7 +10,7 @@ import {
   StackedBarChart
 } from "react-native-chart-kit";
 
-export default function App() {
+const Match= ({navigation}) =>{
 
   const [matches, setMatches] = useState({});
   const [direTeam, setDireTeam] = useState([]);
@@ -74,14 +74,13 @@ export default function App() {
       {Object.entries(matches).length > 0 ? (
           <View style={styles.main}>
             <Text style={styles.text}>match id: {matches.match_id}</Text>
-            <Text style={styles.text}>{`${Math.floor(matches.duration / 60)}:${matches.duration % 60}`}</Text>
             <Text style={styles.text}>
-              <Text style={styles.radiant}>{matches.radiant_score}</Text>-<Text
-              style={styles.dire}>{matches.dire_score}</Text>
+              <Text style={styles.radiant}>{matches.radiant_score}</Text>
+              <Text style={{fontSize:15}}> {`${Math.floor(matches.duration / 60)}:${matches.duration % 60}`} </Text>
+              <Text style={styles.dire}>{matches.dire_score}</Text>
             </Text>
             <Text style={styles.text}>{matches.radiant_win ? "Radiant" : "Dire"} Win</Text>
             <Text style={styles.radiant}>Radiant Team:</Text>
-
             <ScrollView horizontal={true} contentContainerStyle={{
               flexDirection: "column",
             }}>
@@ -99,7 +98,7 @@ export default function App() {
               </View>
               {radiantTeam.map((player, index) => {
                 return (
-                  <PlayerCard player={player} key={player.id} items={items} itemIds={itemIds} />
+                  <PlayerCard player={player} key={player.id} items={items} itemIds={itemIds} navigation={navigation}/>
                 );
               })}
             </ScrollView>
@@ -121,7 +120,7 @@ export default function App() {
               </View>
               {direTeam.map((player, index) => {
               return (
-                <PlayerCard player={player} key={player.id} items={items} itemIds={itemIds} />
+                <PlayerCard player={player} key={player.id} items={items} itemIds={itemIds} navigation={navigation} />
               );
             })}
             </ScrollView>
@@ -184,7 +183,7 @@ const styles = StyleSheet.create({
   },
 
   dire: {
-    color: "#8b1717",
+    color: "#a51e1e",
     fontSize: 25,
   },
   radiant: {
@@ -196,3 +195,4 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
 });
+export default Match

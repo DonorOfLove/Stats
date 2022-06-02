@@ -1,21 +1,21 @@
 import 'react-native-gesture-handler'
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, View,} from 'react-native'
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import Home from "./components/Home";
-import News from "./components/News";
-import Match from "./components/Match/Match"
+import { createStackNavigator } from '@react-navigation/stack';
+import PlayerList from "./components/PlayerList";
+import DrawerNav from "./components/DrawerNav";
+import Profile from "./components/Profile";
 
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
-const App: () => Node = () => {
+const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Match" component={Match} />
-        <Drawer.Screen name="News" component={News} />
-      </Drawer.Navigator>
+        <Stack.Navigator initialRouteName={'DrawerNav'}>
+            <Stack.Screen name="DrawerNav" component={DrawerNav} />
+            <Stack.Screen name="Profile" component={Profile} />
+        </Stack.Navigator>
     </NavigationContainer>
 
   );

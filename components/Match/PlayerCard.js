@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
-import { View, Text, StyleSheet, Image, ScrollView} from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView,TouchableOpacity} from "react-native";
 import _ from "lodash";
 
-const playerCard = ({ player,items,itemIds }) => {
+const playerCard = ({player,items,itemIds, navigation }) => {
 
   const [hero, setHero] = React.useState({});
 
@@ -23,15 +23,20 @@ const playerCard = ({ player,items,itemIds }) => {
         <Image source={{ uri: `https://cdn.cloudflare.steamstatic.com/${hero.icon}` }}
                style={styles.image} />
       ) : (
-        <Image source={{ uri: "https://http.cat/102" }}
-               style={styles.image} />
+          <Image source={{uri:'https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif'}} style={{ width: 150, height: 150 }}/>
       )}
       <View style={styles.info}><View style={styles.lvl}>
         <Text style={{color:'#ffffff'}}>{player.level}</Text>
       </View>
-        <Text style={{color:'#fff'}}>{player.personaname || "Anon"}</Text>
-      </View>
 
+        {player.personaname?(
+            <TouchableOpacity onPress={()=>navigation.push('Profile',{
+    id:player.account_id,
+            })}><Text style={{color:'#fff'}}>{player.personaname}</Text></TouchableOpacity>
+        ):(
+          <Text  style={{color:'#fff'}}>Anon</Text>
+        )}
+      </View>
       <Text style={styles.KDA}> {player.kills}/{player.deaths}/{player.assists}  </Text>
       <View style={styles.items}>
       {!_.isEmpty(items)&&player.item_0!==0 ? (
