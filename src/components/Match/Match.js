@@ -124,6 +124,7 @@ const Match= ({navigation}) =>{
               );
             })}
             </ScrollView>
+            <Text style={{color:'#fff',fontSize:15}}>Gold difference:</Text>
             <LineChart
                 segments={5}
                 data={{

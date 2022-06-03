@@ -1,34 +1,28 @@
 import React, { Component, useState } from "react";
 import { View, Text, StyleSheet, Image, ScrollView,TouchableOpacity} from "react-native";
 import _ from "lodash";
+import HeroIconClickable from "../auxiliary/HeroIconClickable";
+import Context from "../../../context"
 
 const playerCard = ({player,items,itemIds, navigation }) => {
 
+const context=React.useContext(Context)
   const [hero, setHero] = React.useState({});
 
   React.useEffect(() => {
-    fetch("https://api.opendota.com/api/constants/heroes")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setHero(data[player.hero_id]);
-      });
-
+        setHero(context.heroes[player.hero_id]);
   }, []);
 
   return (
     <View style={styles.main}>
       {!_.isEmpty(hero) ? (
-        <Image source={{ uri: `https://cdn.cloudflare.steamstatic.com/${hero.icon}` }}
-               style={styles.image} />
+        <HeroIconClickable img={hero.img}/>
       ) : (
           <Image source={{uri:'https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif'}} style={{ width: 150, height: 150 }}/>
       )}
       <View style={styles.info}><View style={styles.lvl}>
         <Text style={{color:'#ffffff'}}>{player.level}</Text>
       </View>
-
         {player.personaname?(
             <TouchableOpacity onPress={()=>navigation.push('Profile',{
     id:player.account_id,
