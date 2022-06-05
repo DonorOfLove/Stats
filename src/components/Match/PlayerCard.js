@@ -25,13 +25,13 @@ const context=React.useContext(Context)
       </View>
         {player.personaname?(
             <TouchableOpacity onPress={()=>navigation.push('Profile',{
-    id:player.account_id,
-            })}><Text style={{color:'#fff'}}>{player.personaname}</Text></TouchableOpacity>
+    id:player.account_id})}>
+              <Text style={{color:'#fff'}}>{player.personaname}</Text></TouchableOpacity>
         ):(
           <Text  style={{color:'#fff'}}>Anon</Text>
         )}
       </View>
-      <Text style={styles.KDA}> {player.kills}/{player.deaths}/{player.assists}  </Text>
+      <Text style={styles.KDA}> {player.kills}/{player.deaths}/{player.assists} </Text>
       <View style={styles.items}>
       {!_.isEmpty(items)&&player.item_0!==0 ? (
           <Image source={{ uri: `https://cdn.cloudflare.steamstatic.com/${items[itemIds[player.item_0]]['img']}`}}

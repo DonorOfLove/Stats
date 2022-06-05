@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, ScrollView, Image,ImageBackground, Dimensions  } from "react-native";
 import PlayerCard from "./PlayerCard";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit";
+import {LineChart} from "react-native-chart-kit";
 
 const Match= ({navigation}) =>{
 
@@ -85,16 +78,16 @@ const Match= ({navigation}) =>{
               flexDirection: "column",
             }}>
               <View style={styles.table}>
-                <Text style={{ width: 175, color: "#fff" }}>NAME</Text>
-                <Text style={{ width: 110, color: "#fff" }}>K/D/A</Text>
-                <Text style={{ width: 255, color: "#fff" }}>ITEMS</Text>
-                <Text style={{ width: 95, color: "#fff" }}>NET</Text>
+                <Text style={{ width: 175, color: "#fff",marginLeft:50 }}>NAME:</Text>
+                <Text style={{ width: 110, color: "#fff" }}>K/D/A:</Text>
+                <Text style={{ width: 255, color: "#fff" }}>ITEMS:</Text>
+                <Text style={{ width: 95, color: "#fff" }}>NET:</Text>
                 <Text style={{ width: 30, color: "#fff" }}>LH /</Text>
-                <Text style={{ width: 50, color: "#fff" }}>DN</Text>
-                <Text style={{ width: 50, color: "#fff" }}>GPM /</Text>
-                <Text style={{ width: 70, color: "#fff" }}>EPM</Text>
-                <Text style={{ width: 50, color: "#fff" }}>DMG</Text>
-                <Text style={{ width: 70, color: "#fff" }}>HEAL</Text>
+                <Text style={{ width: 50, color: "#fff" }}>DN:</Text>
+                <Text style={{ width: 50, color: "#fff" }}>GPM  /</Text>
+                <Text style={{ width: 70, color: "#fff" }}>EPM:</Text>
+                <Text style={{ width: 50, color: "#fff" }}>DMG:</Text>
+                <Text style={{ width: 70, color: "#fff" }}>HEAL:</Text>
               </View>
               {radiantTeam.map((player, index) => {
                 return (
@@ -107,16 +100,16 @@ const Match= ({navigation}) =>{
               flexDirection: "column",
             }}>
               <View style={styles.table}>
-                <Text style={{ width: 175, color: "#fff" }}>NAME</Text>
-                <Text style={{ width: 110, color: "#fff" }}>K/D/A</Text>
-                <Text style={{ width: 255, color: "#fff" }}>ITEMS</Text>
-                <Text style={{ width: 95, color: "#fff" }}>NET</Text>
+                <Text style={{ width: 175, color: "#fff",marginLeft:50}}>NAME:</Text>
+                <Text style={{ width: 110, color: "#fff" }}>K/D/A:</Text>
+                <Text style={{ width: 255, color: "#fff" }}>ITEMS:</Text>
+                <Text style={{ width: 95, color: "#fff" }}>NET:</Text>
                 <Text style={{ width: 30, color: "#fff" }}>LH /</Text>
-                <Text style={{ width: 50, color: "#fff" }}>DN</Text>
-                <Text style={{ width: 50, color: "#fff" }}>GPM /</Text>
-                <Text style={{ width: 70, color: "#fff" }}>EPM</Text>
-                <Text style={{ width: 50, color: "#fff" }}>DMG</Text>
-                <Text style={{ width: 70, color: "#fff" }}>HEAL</Text>
+                <Text style={{ width: 50, color: "#fff" }}>DN:</Text>
+                <Text style={{ width: 50, color: "#fff" }}>GPM  /</Text>
+                <Text style={{ width: 70, color: "#fff" }}>EPM:</Text>
+                <Text style={{ width: 50, color: "#fff" }}>DMG:</Text>
+                <Text style={{ width: 70, color: "#fff" }}>HEAL:</Text>
               </View>
               {direTeam.map((player, index) => {
               return (
@@ -180,7 +173,7 @@ const styles = StyleSheet.create({
   table: {
     flexDirection: "row",
     width: "100%",
-    marginLeft:50
+    backgroundColor:'rgb(23,22,22)'
   },
 
   dire: {

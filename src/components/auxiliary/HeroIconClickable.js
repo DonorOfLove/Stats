@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image,TouchableOpacity } from "react-native";
+import { StyleSheet, Image,TouchableOpacity } from "react-native";
 
 const HeroIconClickable = ({img}) => {
 
