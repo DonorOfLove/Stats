@@ -8,7 +8,6 @@ const Match= ({navigation}) =>{
   const [matches, setMatches] = useState({});
   const [direTeam, setDireTeam] = useState([]);
   const [radiantTeam, setRadiantTeam] = useState([]);
-
   const [itemIds, setItemIds] = React.useState({});
   const [items, setItems] = useState({});
 
@@ -89,7 +88,7 @@ const Match= ({navigation}) =>{
                 <Text style={{ width: 50, color: "#fff" }}>DMG:</Text>
                 <Text style={{ width: 70, color: "#fff" }}>HEAL:</Text>
               </View>
-              {radiantTeam.map((player, index) => {
+              {radiantTeam.map((player) => {
                 return (
                   <PlayerCard player={player} key={player.id} items={items} itemIds={itemIds} navigation={navigation}/>
                 );
