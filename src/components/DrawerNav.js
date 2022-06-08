@@ -10,6 +10,7 @@ const Drawer = createDrawerNavigator();
 const DrawerNav = (props)=>{
     return (
         <Drawer.Navigator initialRouteName="Home">
+
             <Drawer.Screen name="Match" component={Match} />
             <Drawer.Screen name="News" component={News} />
             <Drawer.Screen name="PlayerList" component={PlayerList} />

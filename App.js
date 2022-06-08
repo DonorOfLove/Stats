@@ -1,11 +1,12 @@
 import "react-native-gesture-handler";
 import React from "react";
-import {ImageBackground, StyleSheet} from "react-native";
+import {ImageBackground, StyleSheet,Text} from "react-native";
 import {NavigationContainer, DefaultTheme} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import DrawerNav from "./src/components/DrawerNav";
 import Profile from "./src/components/Profile";
 import Context from "./context";
+import Hero from "./src/components/Hero/Hero";
 
 const navTheme = {
     ...DefaultTheme,
@@ -20,16 +21,13 @@ const App = () => {
     const [heroes, setHeroes] = React.useState([])
     React.useEffect(() => {
         fetch("https://api.opendota.com/api/constants/heroes")
-
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
                 setHeroes(data);
             });
-
     }, []);
-
     return (
         <Context.Provider value={{heroes}}>
             <ImageBackground source={require("./src/assets/shutter.png")}
@@ -38,9 +36,11 @@ const App = () => {
                     <Stack.Navigator initialRouteName={"DrawerNav"}>
                         <Stack.Screen name="DrawerNav" component={DrawerNav}/>
                         <Stack.Screen name="Profile" component={Profile}/>
+                        <Stack.Screen name="Hero" component={Hero}/>
                     </Stack.Navigator>
                 </NavigationContainer>
             </ImageBackground>
+
         </Context.Provider>
     );
 };

@@ -5,7 +5,6 @@ import HeroIconClickable from "../auxiliary/HeroIconClickable";
 import Context from "../../../context"
 
 const playerCard = ({player,items,itemIds, navigation }) => {
-
 const context=React.useContext(Context)
   const [hero, setHero] = React.useState({});
 
@@ -14,13 +13,15 @@ const context=React.useContext(Context)
   }, []);
 
   return (
+
     <View style={styles.main}>
       {!_.isEmpty(hero) ? (
-        <HeroIconClickable img={hero.img}/>
+        <HeroIconClickable img={hero.img} heroId={hero.id} navigation={navigation}/>
       ) : (
           <Image source={{uri:'https://c.tenor.com/RVvnVPK-6dcAAAAM/reload-cat.gif'}} style={{ width: 150, height: 150 }}/>
       )}
-      <View style={styles.info}><View style={styles.lvl}>
+      <View style={styles.info}>
+        <View style={styles.lvl}>
         <Text style={{color:'#ffffff'}}>{player.level}</Text>
       </View>
         {player.personaname?(
