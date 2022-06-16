@@ -65,7 +65,7 @@ const Match= ({navigation}) =>{
     <ScrollView style={styles.root}>
       {Object.entries(matches).length > 0 ? (
           <View style={styles.main}>
-            <Text style={styles.text}>match id: {matches.match_id}</Text>
+            <Text style={styles.text}>Match id: {matches.match_id}</Text>
             <Text style={styles.text}>
               <Text style={styles.radiant}>{matches.radiant_score}</Text>
               <Text style={{fontSize:15}}> {`${Math.floor(matches.duration / 60)}:${matches.duration % 60}`} </Text>
@@ -158,8 +158,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     flexGrow: 1,
-    backgroundColor: "#180b25",
-
   },
   main:{
     textAlign:'center',
